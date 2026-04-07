@@ -6,17 +6,13 @@ COPY pom.xml ./
 COPY .mvn/ .mvn/
 COPY mvnw ./
 
-# ✅ FIX HERE
 RUN chmod +x mvnw
 
-# Download dependencies
 RUN ./mvnw dependency:go-offline -B
 
-# Copy source code
 COPY src ./src
 
-# Build project
 RUN ./mvnw clean package -DskipTests
 
-# Run app
-CMD ["java", "-jar", "target/*.jar"]
+# ✅ FIXED HERE (use exact jar name)
+CMD ["java", "-jar", "target/monument-backend-0.0.1-SNAPSHOT.jar"]
