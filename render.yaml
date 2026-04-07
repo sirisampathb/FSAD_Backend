@@ -6,10 +6,18 @@ services:
     branch: main
     dockerfilePath: ./Dockerfile
     envVars:
-      - key: DATABASE_URL
+      - key: DATABASE_HOST
         fromDatabase:
           name: monument-db
-          property: connectionURI
+          property: host
+      - key: DATABASE_PORT
+        fromDatabase:
+          name: monument-db
+          property: port
+      - key: DATABASE_NAME
+        fromDatabase:
+          name: monument-db
+          property: database
       - key: DATABASE_USERNAME
         fromDatabase:
           name: monument-db
