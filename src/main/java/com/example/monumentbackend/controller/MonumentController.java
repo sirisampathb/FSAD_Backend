@@ -9,12 +9,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/monuments")
-@CrossOrigin(origins = "http://localhost:5000", allowCredentials = "true")
 public class MonumentController {
 
     private final MonumentService monumentService;
 
-    // ✅ Constructor (IMPORTANT)
     public MonumentController(MonumentService monumentService) {
         this.monumentService = monumentService;
     }
