@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: monument-backend
+    runtime: docker
+    repo: https://github.com/sirisampathb/FSAD_Backend
+    branch: main
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: monument-db
+          property: connectionURI
+      - key: DATABASE_USERNAME
+        fromDatabase:
+          name: monument-db
+          property: user
+      - key: DATABASE_PASSWORD
+        fromDatabase:
+          name: monument-db
+          property: password
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: PORT
+        value: 8080
+    healthCheckPath: /api/health
+
+databases:
+  - name: monument-db
+    plan: free
+    databaseName: monumentdb
+    user: monument_user
