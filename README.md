@@ -48,4 +48,3 @@ Update the following properties in `application.properties`:
 - `service/` - Business logic
 - `controller/` - REST controllers
 - `config/` - Configuration classes"# FSAD_Backend-1.2" 
-"# FSAD_Backend-1.2" 
