@@ -12,8 +12,13 @@ public class CorsConfig {
             public void addCorsMappings(CorsRegistry registry) {
 
                 registry.addMapping("/**")
-                        .allowedOrigins("https://bharath-heritage-website-ec3y.vercel.app/")
-                        .allowedMethods("*")
+                        .allowedOrigins(
+                            "http://localhost:3000",
+                            "http://localhost:5000",
+                            "http://localhost:5173",
+                            "https://bharath-heritage-website-ec3y.vercel.app"
+                        )
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
             }
