@@ -7,12 +7,18 @@ import jakarta.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
+    @Column(nullable = false, unique = true)
     private String username;
+
+    @Column(name = "password_hash", nullable = false)
     private String passwordHash;
+
+    @Column(name = "role")
     private String role;
+    
+    @Column(name = "auth_token")
     private String authToken;
 
     // ✅ GETTERS
@@ -25,7 +31,7 @@ public class User {
         return username;
     }
 
-    public String getPasswordHash() {
+    public String getPassword() {
         return passwordHash;
     }
 
@@ -47,7 +53,7 @@ public class User {
         this.username = username;
     }
 
-    public void setPasswordHash(String passwordHash) {
+    public void setPassword(String passwordHash) {
         this.passwordHash = passwordHash;
     }
 
