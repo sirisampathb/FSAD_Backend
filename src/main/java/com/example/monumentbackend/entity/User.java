@@ -13,7 +13,7 @@ public class User {
     @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(name = "password_hash", nullable = false)
+    @Column(name = "password", nullable = false)
     private String passwordHash;
 
     @Column(name = "role")
